@@ -4,6 +4,121 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/waves"
     tools:context=".SignupActivity">
+
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="500dp"
+        android:orientation="vertical"
+        android:gravity="center_vertical"
+        android:paddingStart="32dp"
+        android:paddingEnd="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/subTextSignUp"
+            style="@style/TextAppearance.AppCompat.Title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Sign Up"
+            android:textColor="@color/ColorPrimaryText"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.4"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.294" />
+
+        <TextView
+            android:id="@+id/text"
+            style="@style/TextAppearance.AppCompat.Body1"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="5dp"
+            android:text="Please enter your email and password to get access to your account"
+            android:textColor="@color/ColorPrimaryText"
+            app:layout_constraintEnd_toEndOf="@+id/textLogin"
+            app:layout_constraintStart_toStartOf="@+id/textLogin"
+            app:layout_constraintTop_toBottomOf="@+id/textLogin" />
+
+        <EditText
+            android:background="@drawable/edit_text_bg"
+            android:id="@+id/textEmailAddress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:ems="10"
+            android:hint="Email"
+            android:inputType="textEmailAddress"
+            android:minHeight="48dp"
+            android:textColorHint="#7CFFFFFF"
+            app:layout_constraintEnd_toEndOf="@+id/text"
+            app:layout_constraintStart_toStartOf="@+id/text"
+            app:layout_constraintTop_toBottomOf="@+id/text"
+            android:autofillHints="email@gmail.com" />
+
+        <EditText
+            android:background="@drawable/edit_text_bg"
+            android:id="@+id/textPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:ems="10"
+            android:hint="Password"
+            android:inputType="textPassword"
+            android:minHeight="48dp"
+            android:textColorHint="#7CFFFFFF"
+            app:layout_constraintEnd_toEndOf="@+id/textEmailAddress"
+            app:layout_constraintStart_toStartOf="@+id/textEmailAddress"
+            app:layout_constraintTop_toBottomOf="@+id/textEmailAddress" />
+
+        <EditText
+            android:id="@+id/textConfirmPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/edit_text_bg"
+            android:ems="10"
+            android:hint="Confirm Password"
+            android:inputType="textPassword"
+            android:minHeight="48dp"
+            android:textColorHint="#7CFFFFFF"
+            app:layout_constraintEnd_toEndOf="@+id/textEmailAddress"
+            app:layout_constraintStart_toStartOf="@+id/textEmailAddress"
+            app:layout_constraintTop_toBottomOf="@+id/textEmailAddress" />
+
+
+
+        <Button
+            android:id="@+id/btn_SignUp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/btn_primary"
+            android:text="Sign up"
+            android:textColor="@color/ColorPrimaryText"
+            app:layout_constraintEnd_toEndOf="@+id/textPasswordConfirm"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/textPasswordConfirm"
+            app:layout_constraintTop_toBottomOf="@+id/textPasswordConfirm" />
+
+        <TextView
+            android:id="@+id/textLogin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Already have an account? Login"
+            android:textAlignment="center"
+            android:textColor="@color/ColorPrimaryText"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_Login" />
+    </LinearLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

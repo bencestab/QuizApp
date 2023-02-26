@@ -7,6 +7,7 @@
     android:background="@drawable/waves"
     tools:context=".LoginActivity">
 
+
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="500dp"
@@ -75,20 +76,7 @@
             app:layout_constraintStart_toStartOf="@+id/textEmailAddress"
             app:layout_constraintTop_toBottomOf="@+id/textEmailAddress" />
 
-        <EditText
-            android:background="@drawable/edit_text_bg"
-            android:id="@+id/textPasswordConfirm"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:ems="10"
-            android:hint="Confirm Password"
-            android:inputType="textPassword"
-            android:minHeight="48dp"
-            android:textColorHint="#7CFFFFFF"
-            app:layout_constraintEnd_toEndOf="@+id/textPassword"
-            app:layout_constraintStart_toStartOf="@+id/textPassword"
-            app:layout_constraintTop_toBottomOf="@+id/textPassword" />
+
 
         <Button
             android:id="@+id/btn_Login"
@@ -97,6 +85,7 @@
             android:layout_marginTop="10dp"
             android:background="@drawable/btn_primary"
             android:text="Login"
+            android:onClick="LoginClick"
             android:textColor="@color/ColorPrimaryText"
             app:layout_constraintEnd_toEndOf="@+id/textPasswordConfirm"
             app:layout_constraintHorizontal_bias="0.0"
@@ -107,9 +96,9 @@
             android:id="@+id/textSignup"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="10dp"
             android:text="Don't have an account? Sign up!"
-            android:textAlignment="textEnd"
+            android:textAlignment="center"
             android:textColor="@color/ColorPrimaryText"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
