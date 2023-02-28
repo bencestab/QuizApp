@@ -21,31 +21,28 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        populateDummyData()
+        ValamiData()
         setUpViews()
 
     }
 
-    private fun populateDummyData() {
-        quizList.add(Quiz(id = "23-23-24",title="vhgdfi"))
-        quizList.add(Quiz(id = "23-23-24",title="vlhgdfmi"))
-        quizList.add(Quiz(id = "23-23-24",title="fdsami"))
-        quizList.add(Quiz(id = "23-23-24",title="vlafdsai"))
-        quizList.add(Quiz(id = "23-23-24",title="vlfdsai"))
-        quizList.add(Quiz(id = "23-23-24",title="vlfdsai"))
+    private fun ValamiData() {
+        quizList.add(Quiz(id = "Quiz1", title = "Quiz1"))
+        quizList.add(Quiz(id = "Quiz2", title = "Quiz2"))
+        quizList.add(Quiz(id = "Quiz3", title = "Quiz3"))
+        quizList.add(Quiz(id = "Quiz4", title = "Quiz4"))
     }
-
 
     fun setUpViews() {
         setUpDrawerLayout()
         setUpRecyclerView()
     }
 
-    private fun setUpRecyclerView(){
+  fun setUpRecyclerView(){
         val quizRecyclerView = findViewById<RecyclerView>(R.id.quizRecyclerView)
-        adapter = QuizAdapter(quizList)
-        quizRecyclerView.adapter = adapter
-        quizRecyclerView.layoutManager = GridLayoutManager(this,2)
+        quizRecyclerView.layoutManager = GridLayoutManager(this,1)
+        adapter = QuizAdapter(quizList.map { it.title })
+      quizRecyclerView.adapter = adapter
 
     }
 
