@@ -7,5 +7,5 @@ data class Question (
     var option3: String ="",
     var option4: String ="",
     var answer: String ="",
-    var UserAnswer: String =""
+    var userAnswer: String =""
 )
