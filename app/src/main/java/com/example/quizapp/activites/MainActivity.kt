@@ -8,7 +8,9 @@ import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView.LayoutManager
 import com.example.quizapp.R
 import com.example.quizapp.adapters.QuizAdapter
 import com.example.quizapp.models.Quiz
@@ -53,12 +55,15 @@ class MainActivity : AppCompatActivity() {
                 return@addSnapshotListener
             }
             Log.d("DATA", value.toObjects(Quiz::class.java).toString())
+            quizList.clear()
+            quizList.addAll(value.toObjects(Quiz::class.java))
+            adapter.notifyDataSetChanged()
         }
     }
 
     fun setUpRecyclerView(){
         val quizRecyclerView = findViewById<RecyclerView>(R.id.quizRecyclerView)
-        quizRecyclerView.layoutManager = GridLayoutManager(this,1)
+        quizRecyclerView.layoutManager = GridLayoutManager(this,2)
         adapter = QuizAdapter(quizList.map { it.title })
       quizRecyclerView.adapter = adapter
 
