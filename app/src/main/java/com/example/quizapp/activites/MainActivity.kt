@@ -1,5 +1,6 @@
 package com.example.quizapp.activites
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -15,6 +16,8 @@ import com.example.quizapp.R
 import com.example.quizapp.adapters.QuizAdapter
 import com.example.quizapp.models.Quiz
 import com.google.android.material.appbar.MaterialToolbar
+import com.google.android.material.datepicker.MaterialDatePicker
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.firebase.firestore.CollectionReference
 import com.google.firebase.firestore.FirebaseFirestore
 
@@ -30,7 +33,29 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         valamiData()
         setUpViews()
+        setUpDatePicker()
 
+    }
+
+    private fun setUpDatePicker() {
+        val btnDatePicker = findViewById<FloatingActionButton>(R.id.btnDatePicker)
+
+        btnDatePicker.setOnClickListener {
+            val datePicker = MaterialDatePicker.Builder.datePicker().build()
+            datePicker.show(supportFragmentManager, "DatePicker")
+            datePicker.addOnPositiveButtonClickListener {
+                Log.d("DATEPICKER", datePicker.headerText)
+                val intent = Intent(this, QuestionActivity::class.java)
+                intent.putExtra("DATE", datePicker.headerText)
+                startActivity(intent)
+            }
+            datePicker.addOnNegativeButtonClickListener{
+                Log.d("DATEPICKER", datePicker.headerText)
+            }
+            datePicker.addOnCancelListener{
+                Log.d("DATEPICKER", "Date Picker Cancelled")
+            }
+        }
     }
 
     private fun valamiData() {

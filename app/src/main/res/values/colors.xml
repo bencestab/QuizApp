@@ -3,8 +3,8 @@
     <color name="ColorPrimaryBtnBg">#FFC107</color>
     <color name="ColorPrimaryText">#FFFFFF</color>
     <color name="EditTextBg">#4F777777</color>
-    <color name="Option_item_bg">#EBECF0</color>
-    <color name="Option_selected_item_bg">#D3D3D3</color>
+    <color name="Option_item_bg">#BFEBECF0</color>
+    <color name="Option_selected_item_bg">#BFD3D3D3</color>
     <color name="purple_200">#03A9F4</color>
     <color name="purple_500">#FFC107</color>
     <color name="purple_700">#FF3700B3</color>

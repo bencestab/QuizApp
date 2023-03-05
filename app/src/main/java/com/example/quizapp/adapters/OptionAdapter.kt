@@ -4,13 +4,14 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.quizapp.R
 import com.example.quizapp.models.Question
 
 class OptionAdapter(val context: Context, val question: Question) :
-    RecyclerView.Adapter<OptionAdapter.OptionViewHolder>() {
+    RecyclerView.Adapter<OptionAdapter.OptionViewHolder>(){
 
     private var options: List<String> = listOf(question.option1,question.option2,question.option3,question.option4)
 

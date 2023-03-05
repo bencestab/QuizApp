@@ -8,14 +8,22 @@
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@mipmap/ic_launcher_round"
+        android:icon="@drawable/quizpic"
         android:label="@string/app_name"
         android:roundIcon="@drawable/quizpic"
         android:supportsRtl="true"
-        android:theme="@style/Theme.QuizApp"
+        android:theme="@style/Theme.QuizAppNoActionBar"
         tools:targetApi="31">
         <activity
-            android:name=".activites.QuestionActivity"
+            android:name=".activites.QuestionActivity" android:theme="@style/Theme.QuizApp"
+            android:exported="true">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+
+        </activity>
+        <activity
+            android:name=".activites.SignupActivity"
             android:exported="true">
             <meta-data
                 android:name="android.app.lib_name"
@@ -25,14 +33,6 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
-        </activity>
-        <activity
-            android:name=".activites.SignupActivity"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
         </activity>
         <activity
             android:name=".activites.LoginActivity"
@@ -47,8 +47,6 @@
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
-
-
         </activity>
         <activity
             android:name=".activites.MainActivity"

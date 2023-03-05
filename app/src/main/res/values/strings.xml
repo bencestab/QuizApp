@@ -13,4 +13,5 @@
     <string name="start">Start</string>
     <string name="k_sz_ntelek_a_csod_latos_kv_zj_t_kunkban_bla_bla_bla_bla_szuper">Köszöntelek a csodálatos kvízjátékunkban bla bla bla bla szuper</string>
     <string name="welcome_in_kuiiz">Welcome in Kuiiz</string>
+    <string name="btndate">btnDate</string>
 </resources>
