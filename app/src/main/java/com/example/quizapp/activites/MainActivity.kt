@@ -9,17 +9,16 @@ import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import androidx.recyclerview.widget.RecyclerView.LayoutManager
 import com.example.quizapp.R
 import com.example.quizapp.adapters.QuizAdapter
 import com.example.quizapp.models.Quiz
 import com.google.android.material.appbar.MaterialToolbar
 import com.google.android.material.datepicker.MaterialDatePicker
 import com.google.android.material.floatingactionbutton.FloatingActionButton
-import com.google.firebase.firestore.CollectionReference
 import com.google.firebase.firestore.FirebaseFirestore
+import java.text.SimpleDateFormat
+import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -31,7 +30,6 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        valamiData()
         setUpViews()
         setUpDatePicker()
 
@@ -45,8 +43,10 @@ class MainActivity : AppCompatActivity() {
             datePicker.show(supportFragmentManager, "DatePicker")
             datePicker.addOnPositiveButtonClickListener {
                 Log.d("DATEPICKER", datePicker.headerText)
+                val dateFormatter = SimpleDateFormat("dd-MM-yyyy")
+                val date = dateFormatter.format(Date(it))
                 val intent = Intent(this, QuestionActivity::class.java)
-                intent.putExtra("DATE", datePicker.headerText)
+                intent.putExtra("DATE", date)
                 startActivity(intent)
             }
             datePicker.addOnNegativeButtonClickListener{
@@ -56,13 +56,6 @@ class MainActivity : AppCompatActivity() {
                 Log.d("DATEPICKER", "Date Picker Cancelled")
             }
         }
-    }
-
-    private fun valamiData() {
-        quizList.add(Quiz(id = "Quiz1", title = "Quiz1"))
-        quizList.add(Quiz(id = "Quiz2", title = "Quiz2"))
-        quizList.add(Quiz(id = "Quiz3", title = "Quiz3"))
-        quizList.add(Quiz(id = "Quiz4", title = "Quiz4"))
     }
 
     fun setUpViews() {
@@ -91,7 +84,6 @@ class MainActivity : AppCompatActivity() {
         quizRecyclerView.layoutManager = GridLayoutManager(this,2)
         adapter = QuizAdapter(quizList.map { it.title })
       quizRecyclerView.adapter = adapter
-
     }
 
     fun setUpDrawerLayout(){

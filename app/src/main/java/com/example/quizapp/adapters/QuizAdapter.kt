@@ -1,15 +1,21 @@
 package com.example.quizapp.adapters
+
+import android.content.Intent
 import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.quizapp.R
+import com.example.quizapp.activites.QuestionActivity
 import com.example.quizapp.utils.ColorPicker
 import com.example.quizapp.utils.IconPicker
+
+
 
 class QuizAdapter(val quizzes: List<String>): RecyclerView.Adapter<QuizAdapter.QuizViewHolder>() {
 
@@ -20,9 +26,16 @@ class QuizAdapter(val quizzes: List<String>): RecyclerView.Adapter<QuizAdapter.Q
     }
 
     override fun onBindViewHolder(holder: QuizViewHolder, position: Int) {
+        val context = holder.itemView.context
         holder.quizTitle.text = quizzes[position]
         holder.quizView.setCardBackgroundColor(Color.parseColor(ColorPicker.getColor()))
         holder.quizIcon.setImageResource(IconPicker.getIcon())
+        holder.itemView.setOnClickListener{
+            Toast.makeText(context,quizzes[position], Toast.LENGTH_SHORT).show()
+            val intent = Intent(context, QuestionActivity::class.java)
+            intent.putExtra("DATE", quizzes[position])
+            context.startActivity(intent)
+        }
     }
 
     override fun getItemCount(): Int {
